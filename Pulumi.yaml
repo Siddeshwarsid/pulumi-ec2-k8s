@@ -1,0 +1,11 @@
+name: my-ec2-instance
+description: A Python program to deploy a virtual machine on Amazon EC2
+runtime:
+  name: python
+  options:
+    toolchain: pip
+    virtualenv: venv
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: vm-aws-python
