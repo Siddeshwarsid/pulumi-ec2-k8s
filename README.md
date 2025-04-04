@@ -41,25 +41,27 @@ Initialize the Pulumi stack:
 pulumi stack init dev
 ```
 
-Preview the changes:
+**Preview the changes:**
 ```bash
 pulumi preview
 ```
 
-Deploy the stack:
+**Deploy the stack:**
 ```bash
 pulumi up
 ```
 After deployment, Pulumi will output the public IP, hostname, and URL of the EC2 instance.
 
-Outputs
+**Outputs**
+```bash
 ip: The public IP address of the EC2 instance.
 hostname: The public DNS hostname of the EC2 instance.
 url: The HTTP URL to access the instance.
+```
 
-Security Group Configuration
+**Security Group Configuration**
 The security group allows the following inbound traffic:
-
+```bash
 SSH (Port 22)
 HTTP (Port 80)
 Kubernetes API Server (Port 6443)
@@ -67,17 +69,19 @@ etcd (Ports 2379-2380)
 Kube-scheduler and Kube-controller-manager (Ports 10251-10252)
 NodePort range for services (Ports 30000-32767)
 Kubelet (Port 10250)
-
-Kubernetes Setup
+```
+**Kubernetes Setup**
 The EC2 instance is configured to:
-
+```bash
 Install containerd.
 Install Kubernetes components (kubelet, kubeadm, kubectl).
 Disable swap and configure kernel modules for Kubernetes.
 Initialize Kubernetes with kubeadm.
 Install Flannel as the pod network.
+```
 
-Cleanup
+**Cleanup**
+
 To destroy the resources created by Pulumi, run:
 ```bash
 pulumi destroy
